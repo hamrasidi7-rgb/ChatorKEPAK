@@ -4,20 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import type { ChatMessage } from "@/types";
 
-const suggestedQuestions = [
-  "Apa visi dan misi kami?",
-  "Program unggulan apa saja?",
-  "Kegiatan terbaru kami?",
-  "Bagaimana cara menyampaikan aspirasi?",
-];
 
-const initialMessages: ChatMessage[] = [
-  {
-    role: "assistant",
-    content:
-      "Halo! Kami AI Asisten Chator KEPAK. Apa yang ingin Anda tanyakan tentang profil, program, atau kegiatan Nom Sihol & Nom Pah?",
-  },
-];
+const initialMessages: ChatMessage[] = [];
 
 export default function AIChatWidget({ isPreview = false }: { isPreview?: boolean }) {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
@@ -79,9 +67,9 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
         </div>
 
         {/* Body */}
-        <div className="p-4">
-          <div className="bg-gray-800 rounded-xl px-3 py-2.5 text-gray-200 text-xs leading-relaxed">
-            {initialMessages[0].content}
+        <div className="px-4 py-3">
+          <div className="bg-gray-800 rounded-xl px-3 py-2.5 text-gray-400 text-xs leading-relaxed italic">
+            Ketik pertanyaan Anda tentang Sumenep...
           </div>
         </div>
 
@@ -136,20 +124,6 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Suggested questions (first load) */}
-      {messages.length === 1 && (
-        <div className="px-4 pb-2 flex flex-wrap gap-2">
-          {suggestedQuestions.map((q) => (
-            <button
-              key={q}
-              onClick={() => sendMessage(q)}
-              className="text-xs border border-brand-red text-brand-red px-3 py-1.5 rounded-full hover:bg-red-50 transition-colors"
-            >
-              {q}
-            </button>
-          ))}
-        </div>
-      )}
 
       {/* Input */}
       <div className="px-4 py-3 border-t border-gray-100">
