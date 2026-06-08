@@ -32,27 +32,8 @@ export default function AIChatBanner({ isOnline = true }: AIChatBannerProps) {
           {/* Konten */}
           <div className="flex-1 min-w-0">
             {/* Judul + Online sebaris */}
-            <div className="flex items-center justify-between gap-2 mb-0.5">
-              <span className="text-white font-extrabold text-sm leading-tight">
-                Tanya apa saja ke AI Asisten Chator KEPAK
-              </span>
-              <span className="flex items-center gap-1 text-[10px] font-semibold whitespace-nowrap flex-shrink-0">
-                <span
-                  className={`w-1.5 h-1.5 rounded-full inline-block ${
-                    isOnline ? "bg-green-400 animate-pulse" : "bg-gray-400"
-                  }`}
-                />
-                <span className={isOnline ? "text-green-300" : "text-gray-300"}>
-                  {isOnline ? "Online" : "Offline"}
-                </span>
-              </span>
-            </div>
-            <p className="text-red-100 text-[10px] md:text-xs leading-snug mb-2.5">
-              Tanyakan tentang visi-misi, program, kegiatan, agenda, atau hal
-              lain seputar Nom Sihol &amp; Nom Pah.
-            </p>
-            <span className="inline-flex items-center gap-1 bg-white text-brand-red font-bold text-xs px-3 py-1.5 rounded-full shadow-sm">
-              Mulai Chat AI →
+            <span className="text-white font-extrabold text-base md:text-lg leading-tight">
+              Tanya AI Soal Sumenep
             </span>
           </div>
         </div>
