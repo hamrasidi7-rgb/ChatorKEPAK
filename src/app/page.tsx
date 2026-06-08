@@ -1,5 +1,4 @@
 import HeroSection from "@/components/home/HeroSection";
-import AIChatBanner from "@/components/home/AIChatBanner";
 import AIChatWidget from "@/components/ai/AIChatWidget";
 
 export default function BerandaPage() {
@@ -8,7 +7,6 @@ export default function BerandaPage() {
   return (
     <div>
       <HeroSection />
-      <AIChatBanner isOnline={isOnline} />
 
       {/* AI Chat Preview */}
       <section className="py-8 px-4 bg-gray-900">
