@@ -46,7 +46,7 @@ export default function BerandaPage() {
           </div>
           <div className="relative flex-shrink-0">
             <Image
-              src="/images/ICON AI CHATOR KEPAK.png"
+              src="/images/ICON AI CHATOR KEPAK (2).png"
               alt="AI ChatorKEPAK"
               width={60}
               height={60}

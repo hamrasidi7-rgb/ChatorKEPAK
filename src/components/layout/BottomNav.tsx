@@ -67,7 +67,7 @@ const navItems = [
     label: "AI Chat",
     icon: (_active: boolean) => (
       <Image
-        src="/images/ICON AI CHATOR KEPAK.png"
+        src="/images/ICON AI CHATOR KEPAK (2).png"
         alt="AI Chat"
         width={28}
         height={28}
