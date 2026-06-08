@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-rose-100 overflow-hidden min-h-[300px] sm:min-h-[380px] md:min-h-[520px]">
+    <section className="relative bg-rose-100 overflow-hidden min-h-[420px] sm:min-h-[500px] md:min-h-[620px]">
 
       {/* Foto duo background */}
       <Image
@@ -19,13 +19,13 @@ export default function HeroSection() {
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to top, rgba(255,228,230,0.97) 0%, rgba(255,228,230,0.88) 28%, rgba(255,228,230,0.3) 55%, transparent 74%)",
+            "linear-gradient(to top, rgba(255,228,230,0.97) 0%, rgba(255,228,230,0.92) 18%, rgba(255,228,230,0.35) 36%, transparent 50%)",
         }}
       />
 
       {/* Teks di bagian bawah */}
       <div className="absolute inset-x-0 bottom-0 z-20 px-5 md:px-10 pb-6 md:pb-10">
-        <h1 className="text-2xl sm:text-3xl md:text-[2.8rem] font-extrabold text-gray-900 leading-tight mb-2 md:mb-3">
+        <h1 className="text-3xl sm:text-4xl md:text-[3rem] font-extrabold text-gray-900 leading-tight mb-2 md:mb-3">
           Bersama Membangun{" "}
           <span className="text-brand-red">Sumenep</span>{" "}
           yang Maju &amp; Sejahtera
