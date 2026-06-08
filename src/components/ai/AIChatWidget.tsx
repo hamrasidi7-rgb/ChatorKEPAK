@@ -1,22 +1,27 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
+import {
+  Compass, TrendingDown, TrendingUp, HeartHandshake,
+  GraduationCap, Wallet, Waypoints, BarChart3,
+} from "lucide-react";
 import type { ChatMessage } from "@/types";
 
-const categoryBoxes = [
-  { label: "Anggaran Absurd", href: "/program", color: "bg-amber-50 border-amber-200 text-amber-800", icon: "💰" },
-  { label: "Anggaran Absurd", href: "/program", color: "bg-amber-50 border-amber-200 text-amber-800", icon: "📊" },
-  { label: "Kemiskinan", href: "/kemiskinan", color: "bg-red-50 border-red-200 text-red-800", icon: "📉" },
-  { label: "Kemiskinan", href: "/kemiskinan", color: "bg-red-50 border-red-200 text-red-800", icon: "🏘️" },
+const chipPrompts = [
+  { id: "visi", label: "Visi misi", icon: Compass, prompt: "Jelaskan visi 'Sumenep Unggul, Mandiri, dan Sejahtera' dan 5 misi Bupati 2025–2030." },
+  { id: "kemiskinan", label: "Angka kemiskinan", icon: TrendingDown, prompt: "Berapa angka kemiskinan Sumenep terbaru dan bagaimana trennya?" },
+  { id: "ipm", label: "IPM", icon: TrendingUp, prompt: "Bagaimana perkembangan IPM Sumenep dari 2021 hingga sekarang?" },
+  { id: "kesejahteraan", label: "Kesejahteraan", icon: HeartHandshake, prompt: "Apa program penguatan kesejahteraan masyarakat yang dijalankan?" },
+  { id: "sdm", label: "Pendidikan & kesehatan", icon: GraduationCap, prompt: "Bagaimana peningkatan SDM diterjemahkan ke pendidikan dan kesehatan?" },
+  { id: "anggaran", label: "Anggaran rakyat", icon: Wallet, prompt: "Berapa APBD yang dialokasikan untuk menekan kemiskinan?" },
+  { id: "infrastruktur", label: "Infrastruktur kepulauan", icon: Waypoints, prompt: "Bagaimana keseimbangan pembangunan kepulauan dan daratan?" },
+  { id: "ekonomi", label: "Ekonomi & daya beli", icon: BarChart3, prompt: "Bagaimana pertumbuhan ekonomi dan daya beli warga Sumenep?" },
 ];
 
 export default function AIChatWidget({
-  isPreview = false,
   initialQuestion = null,
   showHeader = true,
 }: {
-  isPreview?: boolean;
   initialQuestion?: string | null;
   showHeader?: boolean;
 }) {
@@ -64,129 +69,89 @@ export default function AIChatWidget({
     }
   }
 
-  /* ── Preview mode ── */
-  if (isPreview) {
-    return (
-      <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
-        <div className="bg-gray-800 px-4 py-3 flex items-center gap-3">
-          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-            </svg>
-          </div>
-          <div className="flex-1">
-            <p className="text-white font-bold text-sm leading-none">AI ChatorKEPAK</p>
-            <div className="flex items-center gap-1 mt-0.5">
-              <div className={`w-1.5 h-1.5 rounded-full ${isOnline ? "bg-green-400 animate-pulse" : "bg-gray-500"}`} />
-              <span className="text-gray-400 text-xs">{isOnline ? "Online" : "Offline"}</span>
-            </div>
-          </div>
-        </div>
-        <div className="px-4 pb-4">
-          <div className="flex gap-2 bg-gray-800 rounded-full px-3 py-2 items-center">
-            <span className="flex-1 text-gray-600 text-xs"></span>
-            <div className="w-7 h-7 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  /* ── Full chat mode ── */
   return (
-    <div className="flex flex-col h-full bg-gray-900">
-      {/* Header — hanya tampil jika showHeader=true (misal di halaman /ai-chat) */}
+    <div className="flex flex-col h-full bg-slate-900">
+      {/* Header */}
       {showHeader && (
-        <div className="px-4 py-3 flex items-center gap-3 bg-gray-800 flex-shrink-0">
-          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-            </svg>
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm leading-none">AI ChatorKEPAK</p>
-            <div className="flex items-center gap-1 mt-0.5">
-              <div className={`w-1.5 h-1.5 rounded-full ${isOnline ? "bg-green-400 animate-pulse" : "bg-gray-500"}`} />
-              <span className="text-gray-400 text-xs">{isOnline ? "Online" : "Offline"}</span>
-            </div>
+        <div className="px-4 pt-4 pb-2 flex-shrink-0">
+          <h2 className="text-base font-bold text-slate-100">
+            AI <span className="text-amber-400">ChatorKEPAK</span>
+          </h2>
+          <p className="text-xs text-slate-400">
+            Tanyakan soal visi misi, anggaran, kemiskinan &amp; kesejahteraan Sumenep
+          </p>
+          <div className="flex items-center gap-1.5 mt-1">
+            <div className={`w-1.5 h-1.5 rounded-full ${isOnline ? "bg-green-400 animate-pulse" : "bg-gray-500"}`} />
+            <span className="text-slate-500 text-xs">{isOnline ? "Online" : "Offline"}</span>
           </div>
         </div>
       )}
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+      <div className="flex-1 overflow-y-auto px-4 py-2 space-y-2">
         {messages.length === 0 && (
-          <div className="grid grid-cols-2 gap-3 pt-2">
-            {categoryBoxes.map((box, i) => (
-              <Link
-                key={i}
-                href={box.href}
-                className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 ${box.color} text-center hover:opacity-80 transition-opacity`}
-              >
-                <span className="text-2xl">{box.icon}</span>
-                <span className="font-extrabold text-xs uppercase tracking-wide leading-tight">
-                  {box.label}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <p className="mt-8 text-center text-xs text-slate-500">
+            Pilih topik di bawah atau ketik pertanyaan Anda.
+          </p>
         )}
         {messages.map((msg, i) => (
-          <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-            <div
-              className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                msg.role === "user"
-                  ? "bg-brand-red text-white rounded-br-sm"
-                  : "bg-gray-700 text-gray-100 rounded-bl-sm"
-              }`}
-            >
-              {msg.content}
-            </div>
+          <div
+            key={i}
+            className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm ${
+              msg.role === "user"
+                ? "ml-auto bg-amber-500/90 text-slate-900"
+                : "mr-auto bg-white/10 text-slate-200"
+            }`}
+          >
+            {msg.content}
           </div>
         ))}
         {loading && (
-          <div className="flex justify-start">
-            <div className="bg-gray-700 rounded-2xl rounded-bl-sm px-4 py-3">
-              <div className="flex gap-1">
-                {[0, 150, 300].map((delay) => (
-                  <div
-                    key={delay}
-                    className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                    style={{ animationDelay: `${delay}ms` }}
-                  />
-                ))}
-              </div>
+          <div className="mr-auto bg-white/10 rounded-2xl px-4 py-3">
+            <div className="flex gap-1">
+              {[0, 150, 300].map((delay) => (
+                <div
+                  key={delay}
+                  className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
+                  style={{ animationDelay: `${delay}ms` }}
+                />
+              ))}
             </div>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input */}
-      <div className="px-4 py-3 border-t border-gray-700 flex-shrink-0">
-        <div className="flex gap-2 items-center">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage(input)}
-            placeholder=""
-            className="flex-1 bg-gray-800 text-white rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-red/30 placeholder-gray-500"
-          />
+      {/* Chip kategori */}
+      <div className="px-4 py-2 flex gap-2 overflow-x-auto [scrollbar-width:none] flex-shrink-0">
+        {chipPrompts.map((c) => (
           <button
-            onClick={() => sendMessage(input)}
-            disabled={!input.trim() || loading}
-            className="w-10 h-10 bg-brand-red disabled:bg-gray-600 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+            key={c.id}
+            onClick={() => sendMessage(c.prompt)}
+            className="flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-200 transition hover:border-amber-300/50 hover:bg-white/10"
           >
-            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            <c.icon className="h-3.5 w-3.5 text-amber-400" />
+            {c.label}
           </button>
-        </div>
+        ))}
+      </div>
+
+      {/* Input */}
+      <div className="px-4 py-3 border-t border-white/10 flex gap-2 flex-shrink-0">
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage(input)}
+          placeholder="Ketik pertanyaan…"
+          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-amber-300/50"
+        />
+        <button
+          onClick={() => sendMessage(input)}
+          disabled={!input.trim() || loading}
+          className="rounded-full bg-amber-500 disabled:bg-slate-700 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-400"
+        >
+          Kirim
+        </button>
       </div>
     </div>
   );
