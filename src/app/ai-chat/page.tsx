@@ -20,7 +20,7 @@ export default function AIChatPage() {
         </div>
         <div className="flex-1">
           <p className="text-white font-bold text-sm leading-none">
-            AI Asisten Chator KEPAK
+            AI ChatorKEPAK
           </p>
           <div className="flex items-center gap-1.5 mt-1">
             <div

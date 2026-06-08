@@ -58,7 +58,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
             </div>
           </div>
           <div className="flex-1">
-            <p className="text-white font-bold text-sm leading-none">AI Chat Chator KEPAK</p>
+            <p className="text-white font-bold text-sm leading-none">AI ChatorKEPAK</p>
             <div className="flex items-center gap-1 mt-0.5">
               <div className={`w-1.5 h-1.5 rounded-full ${isOnline ? "bg-green-400 animate-pulse" : "bg-gray-500"}`} />
               <span className="text-gray-400 text-xs">{isOnline ? "Online" : "Offline"}</span>
