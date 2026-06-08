@@ -43,14 +43,12 @@ export default function BerandaPage() {
               AI <span className="text-brand-red">ChatorKEPAK</span>
             </h2>
           </div>
-          <div className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0 w-[72px] h-[72px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/robot-ai.png"
               alt="AI ChatorKEPAK"
-              width={72}
-              height={72}
-              className="object-contain drop-shadow-lg"
+              style={{ width: 72, height: 72, display: "block" }}
             />
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-100 animate-pulse" />
           </div>
