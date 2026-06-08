@@ -133,7 +133,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage(input)}
-            placeholder="Ketik pertanyaan Anda..."
+            placeholder="Ketik pertanyaan Anda tentang Sumenep..."
             className="flex-1 bg-gray-100 rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-red/30 placeholder-gray-400"
           />
           <button
