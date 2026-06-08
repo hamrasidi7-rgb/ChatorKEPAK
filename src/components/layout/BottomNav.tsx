@@ -24,7 +24,7 @@ const navItems = [
     ),
   },
   {
-    href: "/profil",
+    href: "/kemiskinan",
     label: "KEMISKINAN",
     icon: (active: boolean) => (
       <svg
