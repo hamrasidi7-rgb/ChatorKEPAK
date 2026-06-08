@@ -72,9 +72,19 @@ export default function AIChatWidget({
       {/* Messages area */}
       <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2">
         {messages.length === 0 && (
-          <p className="mt-10 text-center text-xs text-slate-500">
-            Pilih topik di atas atau ketik pertanyaan Anda.
-          </p>
+          <div className="flex flex-col gap-3 pt-2">
+            {/* Greeting bubble dari AI */}
+            <div className="flex items-end gap-2">
+              <div className="w-7 h-7 rounded-full bg-brand-red flex items-center justify-center flex-shrink-0 mb-0.5">
+                <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </div>
+              <div className="bg-white/10 text-slate-200 rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm max-w-[85%] leading-relaxed">
+                Halo! Saya AI <span className="text-red-400 font-semibold">ChatorKEPAK</span>. Pilih topik di atas atau ketik pertanyaan Anda tentang Sumenep. 👋
+              </div>
+            </div>
+          </div>
         )}
         {messages.map((msg, i) => (
           <div

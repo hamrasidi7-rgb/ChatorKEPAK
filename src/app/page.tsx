@@ -71,7 +71,7 @@ export default function BerandaPage() {
         </div>
 
         {/* Chat widget */}
-        <div className="h-[420px] md:h-[480px]">
+        <div className="h-[320px] md:h-[380px]">
           <AIChatWidget key={chatKey} initialQuestion={pendingQuestion} showHeader={false} />
         </div>
       </section>
