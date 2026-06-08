@@ -66,14 +66,13 @@ const navItems = [
     href: "/ai-chat",
     label: "AI Chat",
     icon: (_active: boolean) => (
-      <div className="w-6 h-6 relative">
-        <Image
-          src="/images/ICON AI CHATOR KEPAK.png"
-          alt="AI Chat"
-          fill
-          className="object-contain"
-        />
-      </div>
+      <Image
+        src="/images/ICON AI CHATOR KEPAK.png"
+        alt="AI Chat"
+        width={28}
+        height={28}
+        className="object-contain"
+      />
     ),
   },
 ];
