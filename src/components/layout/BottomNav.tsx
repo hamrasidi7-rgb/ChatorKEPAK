@@ -25,7 +25,7 @@ const navItems = [
   },
   {
     href: "/profil",
-    label: "Profil",
+    label: "KEMISKINAN",
     icon: (active: boolean) => (
       <svg
         className="w-5 h-5"
