@@ -63,7 +63,7 @@ const navItems = [
   },
   {
     href: "/program",
-    label: "Program",
+    label: "ANGGARAN ABSURD",
     icon: (active: boolean) => (
       <svg
         className="w-5 h-5"
@@ -120,7 +120,7 @@ export default function BottomNav() {
             >
               {item.icon(active)}
               <span
-                className={`text-[10px] font-semibold ${
+                className={`text-[9px] font-semibold text-center leading-tight ${
                   active ? "text-brand-red" : "text-gray-400"
                 }`}
               >
