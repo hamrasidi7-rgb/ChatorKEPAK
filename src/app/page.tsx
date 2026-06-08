@@ -100,5 +100,5 @@ export default function BerandaPage() {
 
 /* Wrapper agar quick question bisa auto-send ke chat */
 function AIChatWidgetWithQuestion({ initialQuestion }: { initialQuestion: string | null }) {
-  return <AIChatWidget initialQuestion={initialQuestion} />;
+  return <AIChatWidget initialQuestion={initialQuestion} showHeader={false} />;
 }
