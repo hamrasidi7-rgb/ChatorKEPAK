@@ -37,7 +37,7 @@ export default function BerandaPage() {
           {/* Teks intro */}
           <div className="flex-1">
             <p className="text-white font-extrabold text-base leading-tight">
-              Tanya AI <span className="text-red-400">ChatorKEPAK</span>
+              AI <span className="text-red-400">ChatorKEPAK</span>
             </p>
             <p className="text-gray-400 text-xs mt-0.5 leading-snug">
               Tanyakan soal anggaran, kemiskinan, atau program kerja Sumenep
