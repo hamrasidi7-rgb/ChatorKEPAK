@@ -18,9 +18,9 @@ export default function HeroSection() {
       {/* Panel judul elegan di bawah foto */}
       <div className="bg-[#1E0808] px-5 md:px-10 py-5 md:py-8 text-center flex flex-col items-center">
         <h1 className="text-2xl sm:text-3xl md:text-[2.8rem] font-extrabold text-white leading-tight mb-2 md:mb-3">
-          Bersama Membangun{" "}
+          Kolaborasi Untuk{" "}
           <span className="text-red-400">Sumenep</span>{" "}
-          yang Maju &amp; Sejahtera
+          Sejahtera
         </h1>
       </div>
 
