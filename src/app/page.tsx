@@ -7,9 +7,25 @@ export default function BerandaPage() {
     <div>
       <HeroSection />
 
-      <section className="py-6 px-4 bg-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <AIChatWidget isPreview />
+      <section className="bg-gray-900">
+        {/* Header */}
+        <div className="px-4 py-3 flex items-center gap-3 bg-gray-800">
+          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="text-white font-bold text-sm leading-none">AI ChatorKEPAK</p>
+            <div className="flex items-center gap-1 mt-0.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-gray-400 text-xs">Online</span>
+            </div>
+          </div>
+        </div>
+        {/* Full chat widget */}
+        <div className="h-72 md:h-96">
+          <AIChatWidget />
         </div>
       </section>
 
