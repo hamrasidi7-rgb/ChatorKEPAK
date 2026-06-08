@@ -6,12 +6,14 @@ const kategoriStyle: Record<string, string> = {
   kegiatan: "bg-red-100 text-red-700",
   program: "bg-blue-100 text-blue-700",
   pernyataan: "bg-green-100 text-green-700",
+  analisis_apbd: "bg-amber-100 text-amber-700",
 };
 
 const kategoriLabel: Record<string, string> = {
   kegiatan: "KEGIATAN",
   program: "PROGRAM",
   pernyataan: "PERNYATAAN",
+  analisis_apbd: "ANALISIS APBD",
 };
 
 function formatDate(dateStr: string): string {

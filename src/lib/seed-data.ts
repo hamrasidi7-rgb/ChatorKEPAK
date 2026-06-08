@@ -24,7 +24,7 @@ export const seedNews: NewsItem[] = [
     id: "1",
     slug: "nom-sihol-nom-pah-bersilaturahmi-warga-ganding",
     judul: "Nom Sihol & Nom Pah Bersilaturahmi dengan Warga Ganding",
-    kategori: "kegiatan",
+    kategori: "analisis_apbd",
     excerpt:
       "Dalam kunjungan langsung ke Kecamatan Ganding, Nom Sihol dan Nom Pah menyerap aspirasi masyarakat terkait infrastruktur jalan dan irigasi pertanian.",
     konten: `<p>Nom Sihol dan Nom Pah melakukan kunjungan silaturahmi ke Kecamatan Ganding pada Senin, 20 Mei 2025. Dalam kesempatan tersebut, keduanya berdialog langsung dengan ratusan warga yang menyampaikan berbagai aspirasi.</p>
@@ -44,7 +44,7 @@ export const seedNews: NewsItem[] = [
     id: "2",
     slug: "paparkan-program-pembangunan-kecamatan-kota",
     judul: "Paparkan Program Pembangunan di Kecamatan Kota",
-    kategori: "program",
+    kategori: "analisis_apbd",
     excerpt:
       "Nom Sihol & Nom Pah memaparkan visi pembangunan kawasan kota Sumenep yang berfokus pada revitalisasi pasar tradisional dan penataan PKL.",
     konten: `<p>Di hadapan ratusan pedagang dan warga Kecamatan Kota, pasangan Chator KEPAK memaparkan program unggulan pembangunan kawasan kota Sumenep.</p>
@@ -62,7 +62,7 @@ export const seedNews: NewsItem[] = [
     id: "3",
     slug: "komitmen-kemajuan-pendidikan-sumenep",
     judul: "Komitmen untuk Kemajuan Pendidikan di Sumenep",
-    kategori: "program",
+    kategori: "analisis_apbd",
     excerpt:
       "Chator KEPAK berkomitmen mengalokasikan minimal 25% APBD untuk sektor pendidikan demi mewujudkan generasi Sumenep yang cerdas dan berdaya saing.",
     konten: `<p>Pendidikan adalah investasi jangka panjang yang harus menjadi prioritas. Chator KEPAK berkomitmen untuk memastikan setiap anak di Sumenep mendapatkan akses pendidikan berkualitas.</p>
@@ -78,7 +78,7 @@ export const seedNews: NewsItem[] = [
     id: "4",
     slug: "tingkatkan-kualitas-layanan-kesehatan",
     judul: "Tingkatkan Kualitas Layanan Kesehatan di Seluruh Desa",
-    kategori: "pernyataan",
+    kategori: "analisis_apbd",
     excerpt:
       "Nom Sihol menegaskan komitmen untuk membangun Puskesmas modern di setiap kecamatan dan menjamin layanan kesehatan gratis bagi masyarakat kurang mampu.",
     konten: `<p>Kesehatan adalah hak dasar setiap warga. Nom Sihol menegaskan bahwa salah satu program prioritasnya adalah peningkatan kualitas layanan kesehatan hingga ke pelosok desa dan pulau-pulau terpencil di Sumenep.</p>

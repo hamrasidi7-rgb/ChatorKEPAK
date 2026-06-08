@@ -1,4 +1,4 @@
-export type NewsKategori = "kegiatan" | "program" | "pernyataan";
+export type NewsKategori = "kegiatan" | "program" | "pernyataan" | "analisis_apbd";
 export type GaleriTipe = "foto" | "video";
 
 export interface Profile {
