@@ -1,23 +1,3 @@
-import Image from "next/image";
-
-const items = [
-  {
-    id: 1,
-    src: "/images/deni-forum.jpg",
-    alt: "Deni Forum Wartawan",
-  },
-  {
-    id: 2,
-    src: "/images/apbd-sibuk.jpg",
-    alt: "APBD Sibuk",
-  },
-  {
-    id: 3,
-    src: "/ANGGARAN 3.jpg",
-    alt: "Anggaran 3",
-  },
-];
-
 export default function ProgramPage() {
   return (
     <div className="min-h-screen bg-white pb-24">
@@ -32,23 +12,10 @@ export default function ProgramPage() {
         </h1>
       </div>
 
-      {/* 3 Kartu gambar */}
-      <div className="px-4 py-6 grid grid-cols-1 gap-4 max-w-2xl mx-auto">
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className="rounded-2xl overflow-hidden shadow-md border border-gray-100"
-          >
-            <div className="relative w-full aspect-video">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        ))}
+      {/* Placeholder */}
+      <div className="flex flex-col items-center justify-center py-24 text-center px-4">
+        <span className="text-5xl mb-4">💰</span>
+        <p className="text-gray-400 text-sm">Konten sedang disiapkan</p>
       </div>
 
     </div>

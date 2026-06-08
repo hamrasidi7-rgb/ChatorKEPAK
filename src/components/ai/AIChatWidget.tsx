@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import type { ChatMessage } from "@/types";
 
@@ -12,16 +11,28 @@ const categoryBoxes = [
   { label: "Kemiskinan", href: "/kemiskinan", color: "bg-red-50 border-red-200 text-red-800", icon: "🏘️" },
 ];
 
-
-const initialMessages: ChatMessage[] = [];
-
-export default function AIChatWidget({ isPreview = false }: { isPreview?: boolean }) {
-  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
+export default function AIChatWidget({
+  isPreview = false,
+  initialQuestion = null,
+}: {
+  isPreview?: boolean;
+  initialQuestion?: string | null;
+}) {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const didAutoSend = useRef(false);
 
   const isOnline = process.env.NEXT_PUBLIC_AI_ONLINE !== "false";
+
+  useEffect(() => {
+    if (initialQuestion && !didAutoSend.current) {
+      didAutoSend.current = true;
+      sendMessage(initialQuestion);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialQuestion]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -51,19 +62,15 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
     }
   }
 
-  /* ── Preview mode (shown on homepage) ── */
+  /* ── Preview mode ── */
   if (isPreview) {
     return (
       <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
-        {/* Header */}
         <div className="bg-gray-800 px-4 py-3 flex items-center gap-3">
-          <div className="flex -space-x-2">
-            <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-gray-700 relative flex-shrink-0">
-              <Image src="/images/nom-sihol.jpg" alt="Nom Sihol" fill className="object-cover object-top" />
-            </div>
-            <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-gray-700 relative flex-shrink-0">
-              <Image src="/images/nom-pah.jpg" alt="Nom Pah" fill className="object-cover object-top" />
-            </div>
+          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
           </div>
           <div className="flex-1">
             <p className="text-white font-bold text-sm leading-none">AI ChatorKEPAK</p>
@@ -73,9 +80,6 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
             </div>
           </div>
         </div>
-
-
-        {/* Input bar */}
         <div className="px-4 pb-4">
           <div className="flex gap-2 bg-gray-800 rounded-full px-3 py-2 items-center">
             <span className="flex-1 text-gray-600 text-xs"></span>
@@ -93,7 +97,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
   /* ── Full chat mode ── */
   return (
     <div className="flex flex-col h-full bg-gray-900">
-      {/* Header terintegrasi */}
+      {/* Header */}
       <div className="px-4 py-3 flex items-center gap-3 bg-gray-800 flex-shrink-0">
         <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -108,9 +112,9 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
           </div>
         </div>
       </div>
-      {/* Messages */}
+
+      {/* Messages area */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
-        {/* Kotak kategori — tampil saat chat kosong */}
         {messages.length === 0 && (
           <div className="grid grid-cols-2 gap-3 pt-2">
             {categoryBoxes.map((box, i) => (
@@ -142,7 +146,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
         ))}
         {loading && (
           <div className="flex justify-start">
-            <div className="bg-gray-100 rounded-2xl rounded-bl-sm px-4 py-3">
+            <div className="bg-gray-700 rounded-2xl rounded-bl-sm px-4 py-3">
               <div className="flex gap-1">
                 {[0, 150, 300].map((delay) => (
                   <div
@@ -158,9 +162,8 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
         <div ref={messagesEndRef} />
       </div>
 
-
       {/* Input */}
-      <div className="px-4 py-3 border-t border-gray-700">
+      <div className="px-4 py-3 border-t border-gray-700 flex-shrink-0">
         <div className="flex gap-2 items-center">
           <input
             type="text"
@@ -173,7 +176,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
           <button
             onClick={() => sendMessage(input)}
             disabled={!input.trim() || loading}
-            className="w-10 h-10 bg-brand-red disabled:bg-gray-200 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+            className="w-10 h-10 bg-brand-red disabled:bg-gray-600 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
           >
             <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
