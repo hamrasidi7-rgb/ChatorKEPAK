@@ -48,9 +48,10 @@ export default function BerandaPage() {
             <Image
               src="/images/robot-ai.png"
               alt="AI ChatorKEPAK"
-              width={60}
-              height={60}
-              className="object-contain mix-blend-multiply drop-shadow-md"
+              width={72}
+              height={72}
+              unoptimized
+              className="object-contain drop-shadow-lg"
             />
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-100 animate-pulse" />
           </div>
