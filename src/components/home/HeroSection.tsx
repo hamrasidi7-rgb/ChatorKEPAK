@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -27,21 +26,6 @@ export default function HeroSection() {
           Komitmen kami untuk mendengar aspirasi masyarakat, dan bekerja
           untuk masa depan Sumenep yang lebih baik.
         </p>
-        <Link
-          href="/profil"
-          className="inline-flex items-center gap-1.5 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm md:text-base px-5 py-2.5 rounded-full transition-colors shadow-lg"
-        >
-          Tentang Kami
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </Link>
       </div>
 
     </section>
