@@ -7,10 +7,8 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Beranda" },
-  { href: "/profil", label: "Profil" },
-  { href: "/news", label: "News" },
-  { href: "/galeri", label: "Galeri" },
-  { href: "/program", label: "Program" },
+  { href: "/profil", label: "KEMISKINAN" },
+  { href: "/program", label: "ANGGARAN ABSURD" },
   { href: "/ai-chat", label: "AI Chat" },
 ];
 
