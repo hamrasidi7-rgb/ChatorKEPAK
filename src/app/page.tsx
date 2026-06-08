@@ -26,18 +26,6 @@ export default function BerandaPage() {
       <section className="bg-gray-950">
         {/* Intro bar */}
         <div className="px-4 pt-5 pb-3 flex items-center gap-4">
-          {/* Robot icon */}
-          <div className="relative flex-shrink-0">
-            <div className="w-16 h-16 relative">
-              <Image
-                src="/images/ICON AI CHATOR KEPAK.png"
-                alt="AI ChatorKEPAK"
-                fill
-                className="object-contain drop-shadow-lg"
-              />
-            </div>
-            <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-gray-950 animate-pulse" />
-          </div>
           {/* Teks intro */}
           <div className="flex-1">
             <p className="text-white font-extrabold text-base leading-tight">
@@ -46,6 +34,18 @@ export default function BerandaPage() {
             <p className="text-gray-400 text-xs mt-0.5 leading-snug">
               Tanyakan soal anggaran, kemiskinan, atau program kerja Sumenep
             </p>
+          </div>
+          {/* Robot icon — kanan, transparan */}
+          <div className="relative flex-shrink-0">
+            <div className="w-20 h-20 relative">
+              <Image
+                src="/images/ICON AI CHATOR KEPAK.png"
+                alt="AI ChatorKEPAK"
+                fill
+                className="object-contain mix-blend-screen"
+              />
+            </div>
+            <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-gray-950 animate-pulse" />
           </div>
         </div>
 
