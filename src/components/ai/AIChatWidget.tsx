@@ -66,17 +66,11 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
           </div>
         </div>
 
-        {/* Body */}
-        <div className="px-4 py-3">
-          <div className="bg-gray-800 rounded-xl px-3 py-2.5 text-gray-400 text-xs leading-relaxed italic">
-            Ketik pertanyaan Anda tentang Sumenep...
-          </div>
-        </div>
 
         {/* Input bar */}
         <div className="px-4 pb-4">
           <div className="flex gap-2 bg-gray-800 rounded-full px-3 py-2 items-center">
-            <span className="flex-1 text-gray-600 text-xs">Ketik pertanyaan Anda tentang Sumenep...</span>
+            <span className="flex-1 text-gray-600 text-xs"></span>
             <div className="w-7 h-7 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0">
               <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -133,7 +127,7 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage(input)}
-            placeholder="Ketik pertanyaan Anda tentang Sumenep..."
+            placeholder=""
             className="flex-1 bg-gray-100 rounded-full px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand-red/30 placeholder-gray-400"
           />
           <button
