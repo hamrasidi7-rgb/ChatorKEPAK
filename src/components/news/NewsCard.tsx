@@ -13,7 +13,7 @@ const kategoriLabel: Record<string, string> = {
   kegiatan: "KEGIATAN",
   program: "PROGRAM",
   pernyataan: "PERNYATAAN",
-  analisis_apbd: "ANALISIS APBD",
+  analisis_apbd: "ANGGARAN ABSURD",
 };
 
 function formatDate(dateStr: string): string {
