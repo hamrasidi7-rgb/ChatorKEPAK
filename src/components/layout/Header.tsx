@@ -39,7 +39,7 @@ export default function Header() {
             <div className="font-extrabold text-[15px] text-gray-900">
               Chator <span className="text-brand-red">KEPAK</span>
             </div>
-            <div className="text-[10px] text-gray-400 font-normal hidden sm:block leading-none">
+            <div className="text-[9px] md:text-[10px] text-gray-400 font-normal leading-none">
               Kebersamaan untuk Sumenep Maju
             </div>
           </div>
