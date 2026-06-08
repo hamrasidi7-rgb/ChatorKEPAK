@@ -22,10 +22,6 @@ export default function HeroSection() {
           <span className="text-red-400">Sumenep</span>{" "}
           yang Maju &amp; Sejahtera
         </h1>
-        <p className="text-red-100/70 text-[11px] sm:text-sm leading-relaxed mb-4 md:mb-5 max-w-lg">
-          Komitmen kami untuk mendengar aspirasi masyarakat, dan bekerja
-          untuk masa depan Sumenep yang lebih baik.
-        </p>
       </div>
 
     </section>
