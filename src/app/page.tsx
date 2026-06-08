@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import {
   Compass, TrendingDown, TrendingUp, HeartHandshake,
   GraduationCap, Wallet, Waypoints, BarChart3,
@@ -45,12 +44,12 @@ export default function BerandaPage() {
             </h2>
           </div>
           <div className="relative flex-shrink-0">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/images/robot-ai.png"
               alt="AI ChatorKEPAK"
               width={72}
               height={72}
-              unoptimized
               className="object-contain drop-shadow-lg"
             />
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-100 animate-pulse" />
