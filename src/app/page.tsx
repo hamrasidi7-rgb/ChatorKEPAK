@@ -50,7 +50,7 @@ export default function BerandaPage() {
               alt="AI ChatorKEPAK"
               width={60}
               height={60}
-              className="object-contain drop-shadow-md"
+              className="object-contain mix-blend-multiply drop-shadow-md"
             />
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-100 animate-pulse" />
           </div>
