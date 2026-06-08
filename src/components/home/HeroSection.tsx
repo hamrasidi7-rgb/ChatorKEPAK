@@ -3,40 +3,33 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-rose-100 overflow-hidden min-h-[420px] sm:min-h-[500px] md:min-h-[620px]">
+    <section className="overflow-hidden">
 
-      {/* Foto duo background */}
-      <Image
-        src="/images/hero-duo.jpeg"
-        alt="Nom Sihol & Nom Pah"
-        fill
-        className="object-cover object-top"
-        priority
-      />
+      {/* Foto atas */}
+      <div className="relative w-full h-[240px] sm:h-[300px] md:h-[440px]">
+        <Image
+          src="/images/hero-duo.jpeg"
+          alt="Nom Sihol & Nom Pah"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+      </div>
 
-      {/* Gradient bawah → atas: foto terlihat di atas, teks terbaca di bawah */}
-      <div
-        className="absolute inset-0 z-10 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(255,228,230,0.97) 0%, rgba(255,228,230,0.92) 18%, rgba(255,228,230,0.35) 36%, transparent 50%)",
-        }}
-      />
-
-      {/* Teks di bagian bawah */}
-      <div className="absolute inset-x-0 bottom-0 z-20 px-5 md:px-10 pb-6 md:pb-10">
-        <h1 className="text-3xl sm:text-4xl md:text-[3rem] font-extrabold text-gray-900 leading-tight mb-2 md:mb-3">
+      {/* Panel judul elegan di bawah foto */}
+      <div className="bg-[#1E0808] px-5 md:px-10 py-5 md:py-8">
+        <h1 className="text-2xl sm:text-3xl md:text-[2.8rem] font-extrabold text-white leading-tight mb-2 md:mb-3">
           Bersama Membangun{" "}
-          <span className="text-brand-red">Sumenep</span>{" "}
+          <span className="text-red-400">Sumenep</span>{" "}
           yang Maju &amp; Sejahtera
         </h1>
-        <p className="text-gray-700 text-[11px] sm:text-sm md:text-base leading-relaxed mb-4 max-w-sm md:max-w-lg">
+        <p className="text-red-100/70 text-[11px] sm:text-sm leading-relaxed mb-4 md:mb-5 max-w-lg">
           Komitmen kami untuk mendengar aspirasi masyarakat, dan bekerja
           untuk masa depan Sumenep yang lebih baik.
         </p>
         <Link
           href="/profil"
-          className="inline-flex items-center gap-1.5 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm md:text-base px-5 py-2.5 rounded-full transition-colors shadow-md"
+          className="inline-flex items-center gap-1.5 bg-brand-red hover:bg-brand-red-hover text-white font-bold text-sm md:text-base px-5 py-2.5 rounded-full transition-colors shadow-lg"
         >
           Tentang Kami
           <svg
