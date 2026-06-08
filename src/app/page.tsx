@@ -23,29 +23,29 @@ export default function BerandaPage() {
       <HeroSection />
 
       {/* AI Chat Section — menonjol */}
-      <section className="bg-gray-950">
+      <section className="bg-slate-100">
         {/* Intro bar */}
         <div className="px-4 pt-5 pb-3 flex items-center gap-4">
           {/* Teks intro */}
           <div className="flex-1">
-            <p className="text-white font-extrabold text-base leading-tight">
-              AI <span className="text-red-400">ChatorKEPAK</span>
+            <p className="text-gray-900 font-extrabold text-base leading-tight">
+              AI <span className="text-brand-red">ChatorKEPAK</span>
             </p>
-            <p className="text-gray-400 text-xs mt-0.5 leading-snug">
+            <p className="text-gray-500 text-xs mt-0.5 leading-snug">
               Tanyakan soal anggaran, kemiskinan, atau program kerja Sumenep
             </p>
           </div>
-          {/* Robot icon — kanan, transparan */}
+          {/* Robot icon — kanan */}
           <div className="relative flex-shrink-0">
             <div className="w-20 h-20 relative">
               <Image
                 src="/images/ICON AI CHATOR KEPAK.png"
                 alt="AI ChatorKEPAK"
                 fill
-                className="object-contain mix-blend-screen"
+                className="object-contain drop-shadow-md"
               />
             </div>
-            <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-gray-950 animate-pulse" />
+            <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-slate-100 animate-pulse" />
           </div>
         </div>
 
@@ -59,7 +59,7 @@ export default function BerandaPage() {
                   setPendingQuestion(q.label);
                   setChatKey((k) => k + 1);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 text-xs font-medium hover:bg-gray-700 hover:border-red-500 hover:text-white transition-all whitespace-nowrap"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 text-xs font-medium hover:bg-gray-50 hover:border-brand-red hover:text-brand-red transition-all whitespace-nowrap shadow-sm"
               >
                 <span>{q.icon}</span>
                 <span>{q.label}</span>
