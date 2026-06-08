@@ -1,6 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
 import AIChatBanner from "@/components/home/AIChatBanner";
-import QuickMenuGrid from "@/components/home/QuickMenuGrid";
 import NewsSection from "@/components/home/NewsSection";
 import AIChatWidget from "@/components/ai/AIChatWidget";
 
@@ -11,7 +10,6 @@ export default function BerandaPage() {
     <div>
       <HeroSection />
       <AIChatBanner isOnline={isOnline} />
-      <QuickMenuGrid />
       <NewsSection />
 
       {/* AI Chat Preview */}
