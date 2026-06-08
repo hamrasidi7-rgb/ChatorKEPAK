@@ -34,7 +34,7 @@ export default function BerandaPage() {
       <HeroSection />
 
       {/* AI Chat Section */}
-      <section className="bg-gray-100">
+      <section className="bg-slate-300">
 
         {/* Intro bar */}
         <div className="px-4 pt-4 pb-3 flex items-center gap-3">
