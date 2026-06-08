@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import HeroSection from "@/components/home/HeroSection";
 import AIChatWidget from "@/components/ai/AIChatWidget";
 import Link from "next/link";
@@ -27,10 +28,13 @@ export default function BerandaPage() {
         <div className="px-4 pt-5 pb-3 flex items-center gap-4">
           {/* Robot icon */}
           <div className="relative flex-shrink-0">
-            <div className="w-14 h-14 bg-gradient-to-br from-brand-red to-red-800 rounded-2xl flex items-center justify-center shadow-lg shadow-red-900/50">
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a2 2 0 012 2v1h1a3 3 0 013 3v1h.5a1.5 1.5 0 010 3H18v1a3 3 0 01-3 3H9a3 3 0 01-3-3v-1h-.5a1.5 1.5 0 010-3H6V8a3 3 0 013-3h1V4a2 2 0 012-2zm0 2v1h-1a1 1 0 00-1 1v.5H9a1 1 0 000 2h.5V11H9a1 1 0 000 2h.5v.5a1 1 0 001 1h3a1 1 0 001-1V13h.5a1 1 0 000-2h-.5V8.5H15a1 1 0 000-2h-.5V7a1 1 0 00-1-1h-1zm-1.5 5.5a1 1 0 110 2 1 1 0 010-2zm3 0a1 1 0 110 2 1 1 0 010-2z" />
-              </svg>
+            <div className="w-16 h-16 relative">
+              <Image
+                src="/images/ICON AI CHATOR KEPAK.png"
+                alt="AI ChatorKEPAK"
+                fill
+                className="object-contain drop-shadow-lg"
+              />
             </div>
             <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-gray-950 animate-pulse" />
           </div>
