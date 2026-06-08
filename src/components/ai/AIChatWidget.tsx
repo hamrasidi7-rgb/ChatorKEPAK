@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { ChatMessage } from "@/types";
+
+const categoryBoxes = [
+  { label: "Anggaran Absurd", href: "/program", color: "bg-amber-50 border-amber-200 text-amber-800", icon: "💰" },
+  { label: "Anggaran Absurd", href: "/program", color: "bg-amber-50 border-amber-200 text-amber-800", icon: "📊" },
+  { label: "Kemiskinan", href: "/kemiskinan", color: "bg-red-50 border-red-200 text-red-800", icon: "📉" },
+  { label: "Kemiskinan", href: "/kemiskinan", color: "bg-red-50 border-red-200 text-red-800", icon: "🏘️" },
+];
 
 
 const initialMessages: ChatMessage[] = [];
@@ -87,6 +95,23 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
     <div className="flex flex-col h-full bg-white">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        {/* Kotak kategori — tampil saat chat kosong */}
+        {messages.length === 0 && (
+          <div className="grid grid-cols-2 gap-3 pt-2">
+            {categoryBoxes.map((box, i) => (
+              <Link
+                key={i}
+                href={box.href}
+                className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 ${box.color} text-center hover:opacity-80 transition-opacity`}
+              >
+                <span className="text-2xl">{box.icon}</span>
+                <span className="font-extrabold text-xs uppercase tracking-wide leading-tight">
+                  {box.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
             <div
