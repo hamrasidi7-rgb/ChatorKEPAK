@@ -1,43 +1,78 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import {
+  Compass, TrendingDown, TrendingUp, HeartHandshake,
+  GraduationCap, Wallet, Waypoints, BarChart3,
+} from "lucide-react";
 import HeroSection from "@/components/home/HeroSection";
 import AIChatWidget from "@/components/ai/AIChatWidget";
 import Link from "next/link";
 
+const chipPrompts = [
+  { id: "visi", label: "Visi misi", icon: Compass, prompt: "Jelaskan visi 'Sumenep Unggul, Mandiri, dan Sejahtera' dan 5 misi Bupati 2025–2030." },
+  { id: "kemiskinan", label: "Angka kemiskinan", icon: TrendingDown, prompt: "Berapa angka kemiskinan Sumenep terbaru dan bagaimana trennya?" },
+  { id: "ipm", label: "IPM", icon: TrendingUp, prompt: "Bagaimana perkembangan IPM Sumenep dari 2021 hingga sekarang?" },
+  { id: "kesejahteraan", label: "Kesejahteraan", icon: HeartHandshake, prompt: "Apa program penguatan kesejahteraan masyarakat yang dijalankan?" },
+  { id: "sdm", label: "Pendidikan & kesehatan", icon: GraduationCap, prompt: "Bagaimana peningkatan SDM diterjemahkan ke pendidikan dan kesehatan?" },
+  { id: "anggaran", label: "Anggaran rakyat", icon: Wallet, prompt: "Berapa APBD yang dialokasikan untuk menekan kemiskinan?" },
+  { id: "infrastruktur", label: "Infrastruktur kepulauan", icon: Waypoints, prompt: "Bagaimana keseimbangan pembangunan kepulauan dan daratan?" },
+  { id: "ekonomi", label: "Ekonomi & daya beli", icon: BarChart3, prompt: "Bagaimana pertumbuhan ekonomi dan daya beli warga Sumenep?" },
+];
+
 export default function BerandaPage() {
+  const [chatKey, setChatKey] = useState(0);
+  const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
+
+  function kirimChip(prompt: string) {
+    setPendingQuestion(prompt);
+    setChatKey((k) => k + 1);
+  }
+
   return (
     <div>
       <HeroSection />
 
       {/* AI Chat Section */}
-      <section className="bg-slate-900">
-        {/* Intro bar dengan robot icon */}
-        <div className="px-4 pt-4 pb-0 flex items-center gap-3">
+      <section className="bg-gray-100">
+
+        {/* Intro bar */}
+        <div className="px-4 pt-4 pb-3 flex items-center gap-3">
           <div className="flex-1">
-            <h2 className="text-base font-bold text-slate-100">
-              AI <span className="text-amber-400">ChatorKEPAK</span>
+            <h2 className="text-base font-bold text-gray-900">
+              AI <span className="text-brand-red">ChatorKEPAK</span>
             </h2>
-            <p className="text-xs text-slate-400 leading-snug">
-              Tanyakan soal visi misi, anggaran, kemiskinan &amp; kesejahteraan Sumenep
-            </p>
           </div>
           <div className="relative flex-shrink-0">
-            <div className="w-16 h-16 relative">
-              <Image
-                src="/images/ICON AI CHATOR KEPAK.png"
-                alt="AI ChatorKEPAK"
-                fill
-                className="object-contain drop-shadow-md"
-              />
-            </div>
-            <div className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-slate-900 animate-pulse" />
+            <Image
+              src="/images/ICON AI CHATOR KEPAK.png"
+              alt="AI ChatorKEPAK"
+              width={60}
+              height={60}
+              className="object-contain drop-shadow-md"
+            />
+            <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-100 animate-pulse" />
           </div>
         </div>
 
-        {/* Chat widget — tanpa header duplikat */}
-        <div className="h-[480px] md:h-[540px]">
-          <AIChatWidget showHeader={false} />
+        {/* 8 Quick-prompt — grid 2 kolom × 4 baris */}
+        <div className="px-4 pb-4 grid grid-cols-2 gap-2">
+          {chipPrompts.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => kirimChip(c.prompt)}
+              className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-xs text-gray-700 font-medium shadow-sm hover:border-brand-red hover:text-brand-red transition-all text-left"
+            >
+              <c.icon className="h-4 w-4 text-brand-red flex-shrink-0" />
+              <span className="leading-tight">{c.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Chat widget */}
+        <div className="h-[420px] md:h-[480px]">
+          <AIChatWidget key={chatKey} initialQuestion={pendingQuestion} showHeader={false} />
         </div>
       </section>
 
