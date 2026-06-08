@@ -79,23 +79,9 @@ export default function AIChatWidget({ isPreview = false }: { isPreview?: boolea
         </div>
 
         {/* Body */}
-        <div className="p-4 flex gap-4">
-          {/* Chat bubble */}
-          <div className="flex-1">
-            <div className="bg-gray-800 rounded-xl px-3 py-2.5 text-gray-200 text-xs leading-relaxed">
-              {initialMessages[0].content}
-            </div>
-          </div>
-          {/* Suggested questions */}
-          <div className="flex-1 flex flex-col gap-1.5">
-            {suggestedQuestions.map((q) => (
-              <div
-                key={q}
-                className="text-xs text-gray-300 bg-gray-800 hover:bg-gray-700 rounded-lg px-2.5 py-2 cursor-pointer transition-colors leading-tight"
-              >
-                {q} ›
-              </div>
-            ))}
+        <div className="p-4">
+          <div className="bg-gray-800 rounded-xl px-3 py-2.5 text-gray-200 text-xs leading-relaxed">
+            {initialMessages[0].content}
           </div>
         </div>
 

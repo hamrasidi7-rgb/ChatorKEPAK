@@ -1,10 +1,17 @@
 import HeroSection from "@/components/home/HeroSection";
+import AIChatWidget from "@/components/ai/AIChatWidget";
 import Link from "next/link";
 
 export default function BerandaPage() {
   return (
     <div>
       <HeroSection />
+
+      <section className="py-6 px-4 bg-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <AIChatWidget isPreview />
+        </div>
+      </section>
 
       {/* Kategori */}
       <section className="px-4 py-6 bg-white">
